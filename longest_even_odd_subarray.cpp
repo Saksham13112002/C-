@@ -12,13 +12,17 @@ void input(int arr[], int n)
 int solve(int arr[], int n)
 {
     int ans = 1;
+    int curr = 1;
 
     for(int i=0;i<n-1;i++)
     {
         if((arr[i]%2==0 && arr[i+1]%2!=0) || (arr[i]%2!=0 && arr[i+1]%2==0))
-            ans++;
+        {
+            curr++;
+            ans = max(curr, ans);
+        }
         else
-            ans = 1;
+            curr = 1;
     }
     return ans;
 }
