@@ -3,21 +3,15 @@ using namespace std;
 
 int solve(int arr[], int n)
 {
-    int currentsum = 0;
-    int maxsum = 0;
+    int ans = arr[0];
+    int max_ending = arr[0];
 
-    for(int i=0;i<n;i++)
+    for(int i=1;i<n;i++)
     {
-        currentsum += arr[i];
-
-        if(currentsum < 0)
-        {
-            currentsum = 0;
-        }
-
-        maxsum = max(maxsum, currentsum);
+        max_ending = max(max_ending + arr[i], arr[i]);
+        ans = max(ans, max_ending);
     }
-    return maxsum;
+    return ans;
 }
 
 void input(int arr[], int n)
